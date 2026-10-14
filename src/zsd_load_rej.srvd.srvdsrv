@@ -1,0 +1,5 @@
+@EndUserText.label: 'Loading Rejection Service'
+define service ZSD_LOAD_REJ {
+  expose ZC_LOAD_REJ_HDR as LoadingHeader;
+  expose ZC_LOAD_REJ_ITM as LoadingItem;
+}

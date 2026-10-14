@@ -1,0 +1,5 @@
+CLASS zbp_i_load_rej_hdr DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_load_rej_hdr.
+ENDCLASS.
+
+CLASS zbp_i_load_rej_hdr IMPLEMENTATION.
+ENDCLASS.

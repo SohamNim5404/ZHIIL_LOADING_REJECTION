@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message class for Loading Rejection</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Choose Edit before fetching order details</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT> Enter an order number</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT> Order not found or not accessible</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Order is marked for deletion</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Order is not released</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Order status could not be verified</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Order is technically completed or closed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT> Existing serials could not be checked</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Order changed: discard this draft and create a new one</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Material document quantity unit is missing</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Different movement units found; unit conversion required</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Work center not found for this order</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Multiple work centers found; select operation or loading configuration</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Could not verify Confirmation before fetching</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Choose Edit before fetching serial numbers</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Click Fetch Order Data first</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Order details changed. Click Fetch Order Data first</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Consumption Not Posted</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>An issued serial assignment has no serial number</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Check 261/262 history for serial &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>No eligible serials found. Check 261/262 postings</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Serial &amp;1 occurs for multiple materials</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Existing draft serials could not be read</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Serial postings changed: discard this draft and fetch again</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Serial &amp;1 is confirmed; cancel the posting before changing it</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Glazed &amp;1 maps to confirmed kiln &amp;2; cancel posting before changing it</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>Cannot verify Confirmation for serial &amp;1; maintain kiln mapping first</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Fetch valid order details before creating or saving Loading Rejection</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>Order details are unavailable. Fetch a valid order before saving</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT> Order details do not match the order number. Fetch Order Data again</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Loading Rejection already exists for this order. Open the existing record</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Only one Loading Rejection record can be created for an order</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Existing record: order, order type, material and batch cannot be changed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Serials could not be checked before saving</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Cannot verify serial posting status before deletion</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>Parent order could not be checked</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>Parent order could not be checked before saving</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT> Order confirmed: use these details for display only</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>No unreversed 261 or 531 quantities found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>Order confirmed: fetched serials are for display only</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>Serial fetch could not update all draft rows</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT> Serial numbers could not be checked. Fetch again before saving</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>Select a rejection reason for serial &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>Fetch serial numbers before saving</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>045</MSGNR>
+     <TEXT>Loading rejection qty &amp;1 differs from &amp;2 rejected serials; must match</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLOAD_REJ_MSG</ARBGB>
+     <MSGNR>046</MSGNR>
+     <TEXT>Could not update loading rejection remarks</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

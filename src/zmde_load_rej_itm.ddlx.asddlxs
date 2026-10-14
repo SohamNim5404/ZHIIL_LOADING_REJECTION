@@ -1,0 +1,107 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: {
+  typeName: 'Loading Rejection Item',
+  typeNamePlural: 'Loading Rejection Items',
+  title: {
+    type: #STANDARD,
+    value: 'SerialNo'
+  },
+  description: {
+    type: #STANDARD,
+    value: 'ProdOrder'
+  }
+}
+
+annotate entity ZC_LOAD_REJ_ITM with
+{
+  @UI.hidden: true
+  HeaderUUID;
+
+  @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Rejection Details',
+      targetQualifier: 'GENERAL',
+      position: 10
+    }
+  ]
+
+  @UI.lineItem: [
+    {
+      position: 10
+    },
+    {
+      position: 70,
+      type: #FOR_ACTION,
+      dataAction: 'RejectAllItems',
+      label: 'Reject All'
+    },
+    {
+      position: 80,
+      type: #FOR_ACTION,
+      dataAction: 'UnrejectAllItems',
+      label: 'Unreject All'
+    }
+  ]
+  @UI.selectionField: [ { position: 10 } ]
+  @UI.fieldGroup: [ { qualifier: 'GENERAL', position: 10 } ]
+  @EndUserText.label: 'Serial Number'
+  displayserialno;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.selectionField: [ { position: 20 } ]
+  @UI.fieldGroup: [ { qualifier: 'GENERAL', position: 20 } ]
+  @EndUserText.label: 'Material'
+  Material;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.selectionField: [ { position: 30 } ]
+  @UI.fieldGroup: [ { qualifier: 'GENERAL', position: 30 } ]
+  @EndUserText.label: 'Reject'
+  Reject;
+
+//  @UI.lineItem: [ { position: 40 } ]
+//  @UI.selectionField: [ { position: 40 } ]
+//  @UI.fieldGroup: [ { qualifier: 'GENERAL', position: 40 } ]
+//  @EndUserText.label: 'Rejection Code'
+@UI.hidden: true
+  RejCode;
+
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.fieldGroup: [ { qualifier: 'GENERAL', position: 50 } ]
+  @EndUserText.label: 'Reason Text'
+  ReasonText;
+
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.fieldGroup: [ { qualifier: 'GENERAL', position: 60 } ]
+  @EndUserText.label: 'Type of Rejection'
+  Remarks;
+
+  @UI.selectionField: [ { position: 50 } ]
+  @UI.fieldGroup: [ { qualifier: 'GENERAL', position: 70 } ]
+  @EndUserText.label: 'Order Number'
+  ProdOrder;
+
+  @UI.selectionField: [ { position: 60 } ]
+  @UI.fieldGroup: [ { qualifier: 'GENERAL', position: 80 } ]
+  @EndUserText.label: 'Stage'
+  Stage;
+
+ @UI.hidden: true
+  OrderType;
+  
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  @UI.hidden: true
+  LastChangedAt;
+}

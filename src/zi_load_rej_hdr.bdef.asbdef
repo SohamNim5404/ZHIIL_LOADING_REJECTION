@@ -1,0 +1,368 @@
+managed implementation in class zbp_i_load_rej_hdr unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_LOAD_REJ_HDR alias Header
+persistent table zload_rej_hd
+draft table zload_rej_hd_d
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete ( features : instance, precheck );
+
+  field ( numbering : managed, readonly ) HeaderUUID;
+  field ( mandatory ) ProdOrder;
+  field ( features : instance ) ProdOrder;
+
+  field ( readonly )
+    Plant,
+    OrderType,
+    Stage,
+    BatchNumber,
+    WorkCenter,
+    Active,
+    Material,
+    QuantityUnit,
+    displayunit,
+    LoadedQty,
+    LoadingRejQty,
+    RejectedCount,
+    CreatedBy,
+    CreatedAt,
+    LocalLastChangedAt,
+    LastChangedAt;
+
+  association _Items { create; with draft; }
+
+  action ( features : instance, authorization : update ) Fetch
+    result [1] $self;
+  action ( features : instance, authorization : update ) FetchSerials
+    result [1] $self;
+
+  validation ValidateSerials on save { create; update; }
+  validation ValidateOrderAndPosting on save { create; update; }
+
+  side effects
+  {
+    action Fetch affects $self;
+    action FetchSerials affects $self, entity _Items;
+  }
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation ValidateSerials;
+//    validation ValidateOrderAndPosting;
+    validation Item~ValidatePostedSerial;
+  }
+
+  mapping for zload_rej_hd
+  {
+    HeaderUUID         = header_uuid;
+    ProdOrder          = prod_order;
+    Plant              = plant;
+    OrderType          = order_type;
+    Stage              = stage;
+    WorkCenter         = work_center;
+    BatchNumber        = batch_number;
+    Active             = active;
+    Material           = material;
+    QuantityUnit       = quantity_unit;
+    displayunit        = displayunit;
+    LoadedQty          = loaded_qty;
+    LoadingRejQty      = loading_rej_qty;
+    RejectedCount      = rejected_count;
+    CreatedBy          = created_by;
+    CreatedAt          = created_at;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt      = last_changed_at;
+  }
+}
+
+define behavior for ZI_LOAD_REJ_ITM alias Item
+persistent table zload_rej_item
+draft table zload_rej_item_d
+lock dependent by _Header
+authorization dependent by _Header
+etag master LocalLastChangedAt
+{
+  update ( features : instance, precheck );
+  delete ( features : instance, precheck );
+
+  field ( readonly )
+    HeaderUUID,
+    ProdOrder,
+    OrderType,
+    Stage,
+    Material,
+    DisplaySerialNo,
+    RejCode,
+    CreatedBy,
+    CreatedAt,
+    LocalLastChangedAt,
+    LastChangedAt;
+
+  field ( features : instance ) Reject, ReasonText, Remarks;
+  field ( readonly : update ) SerialNo;
+  field ( mandatory : create ) SerialNo;
+
+  association _Header { with draft; }
+
+  action ( features : instance, authorization : update ) RejectAllItems
+    result [1] $self;
+  action ( features : instance, authorization : update ) UnrejectAllItems
+    result [1] $self;
+
+  validation ValidatePostedSerial on save { create; update; }
+  determination SetRejectionRemarks on modify { create; field Reject; }
+
+  side effects
+  {
+    field Reject affects
+      field Remarks,
+      permissions(field ReasonText);
+
+    action RejectAllItems affects
+      $self,
+      entity _Header,
+      entity _Header._Items,
+      permissions(field _Header._Items.ReasonText);
+
+    action UnrejectAllItems affects
+      $self,
+      entity _Header,
+      entity _Header._Items,
+      permissions(field _Header._Items.ReasonText);
+  }
+
+  mapping for zload_rej_item
+  {
+    HeaderUUID         = header_uuid;
+    ProdOrder          = prod_order;
+    OrderType          = order_type;
+    SerialNo           = serial_no;
+    DisplaySerialNo    = displayserial_no;
+    Stage              = stage;
+    Material           = material;
+    Reject             = reject;
+    RejCode            = rej_code;
+    ReasonText         = rejectiontext;
+    Remarks            = remarks;
+    CreatedBy          = created_by;
+    CreatedAt          = created_at;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt      = last_changed_at;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//managed implementation in class zbp_i_load_rej_hdr unique;
+//strict ( 2 );
+//with draft;
+//
+//define behavior for ZI_LOAD_REJ_HDR alias Header
+//persistent table zload_rej_hd
+//draft table zload_rej_hd_d
+//lock master total etag LastChangedAt
+//authorization master ( instance )
+//etag master LocalLastChangedAt
+//{
+//  create ( authorization : global );
+//  update;
+//  delete;
+//
+//  field ( numbering : managed, readonly ) HeaderUUID;
+//  field ( mandatory ) ProdOrder;
+//
+//  field ( readonly )
+//    Plant,
+//    OrderType,
+//    Stage,
+//    BatchNumber,
+//    WorkCenter,
+//    Active,
+//    Material,
+//    QuantityUnit,
+//    displayunit,
+//    LoadedQty,
+//    LoadingRejQty,
+//    RejectedCount,
+//    CreatedBy,
+//    CreatedAt,
+//    LocalLastChangedAt,
+//    LastChangedAt;
+//
+//  association _Items { create; with draft; }
+//
+//  action ( authorization : update ) Fetch
+//    result [1] $self;
+//
+//  action ( authorization : update ) FetchSerials
+//    result [1] $self;
+//
+//  validation ValidateSerials on save
+//  {
+//    create;
+//    update;
+//  }
+//
+//  side effects
+//  {
+//    action Fetch affects $self;
+//    action FetchSerials affects $self, entity _Items;
+//  }
+//
+//  draft action Edit;
+//  draft action Activate optimized;
+//  draft action Discard;
+//  draft action Resume;
+//
+//  draft determine action Prepare
+//  {
+//    validation ValidateSerials;
+//  }
+//
+//  mapping for zload_rej_hd
+//  {
+//    HeaderUUID         = header_uuid;
+//    ProdOrder          = prod_order;
+//    Plant              = plant;
+//    OrderType          = order_type;
+//    Stage              = stage;
+//    WorkCenter         = work_center;
+//    BatchNumber        = batch_number;
+//    Active             = active;
+//    Material           = material;
+//    QuantityUnit       = quantity_unit;
+//    displayunit        = displayunit;
+//    LoadedQty          = loaded_qty;
+//    LoadingRejQty      = loading_rej_qty;
+//    RejectedCount      = rejected_count;
+//    CreatedBy          = created_by;
+//    CreatedAt          = created_at;
+//    LocalLastChangedAt = local_last_changed_at;
+//    LastChangedAt      = last_changed_at;
+//  }
+//}
+//
+//define behavior for ZI_LOAD_REJ_ITM alias Item
+//persistent table zload_rej_item
+//draft table zload_rej_item_d
+//lock dependent by _Header
+//authorization dependent by _Header
+//etag master LocalLastChangedAt
+//{
+//  update;
+//  delete;
+//
+//  field ( readonly )
+//    HeaderUUID,
+//    ProdOrder,
+//    OrderType,
+//    Stage,
+//    Material,
+//    CreatedBy,
+//    CreatedAt,
+//    LocalLastChangedAt,
+//    LastChangedAt;
+//
+//  field ( features : instance ) ReasonText;
+//
+//  field ( readonly : update ) SerialNo;
+//  field ( mandatory : create ) SerialNo;
+//
+//  association _Header { with draft; }
+//
+//  action ( authorization : update ) RejectAllItems
+//    result [1] $self;
+//
+//  action ( authorization : update ) UnrejectAllItems
+//    result [1] $self;
+//
+//  side effects
+//  {
+//    field Reject affects
+//  field Remarks,
+//  permissions(field ReasonText);
+//
+//    action RejectAllItems affects
+//      $self,
+//      entity _Header,
+//      entity _Header._Items,
+//      permissions(field _Header._Items.ReasonText);
+//
+//    action UnrejectAllItems affects
+//      $self,
+//      entity _Header,
+//      entity _Header._Items,
+//      permissions(field _Header._Items.ReasonText);
+//  }
+//
+//  determination SetRejectionRemarks on modify
+//{
+//  create;
+//  field Reject;
+//}
+//
+//  mapping for zload_rej_item
+//  {
+//    HeaderUUID         = header_uuid;
+//    ProdOrder          = prod_order;
+//    OrderType          = order_type;
+//    SerialNo           = serial_no;
+//    displayserialno   = displayserial_no;
+//    Stage              = stage;
+//    Material           = material;
+//    Reject             = reject;
+//    RejCode            = rej_code;
+//    ReasonText         = rejectiontext;
+//    Remarks            = remarks;
+//    CreatedBy          = created_by;
+//    CreatedAt          = created_at;
+//    LocalLastChangedAt = local_last_changed_at;
+//    LastChangedAt      = last_changed_at;
+//  }
+//}

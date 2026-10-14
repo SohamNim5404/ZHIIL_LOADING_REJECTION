@@ -1,0 +1,147 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: {
+  typeName: 'Loading Rejection',
+  typeNamePlural: 'Loading Rejections',
+  typeImageUrl: 'sap-icon://inspection',
+  title: {
+    type: #STANDARD,
+    value: 'ProdOrder'
+  },
+  description: {
+    type: #STANDARD,
+    value: 'Stage'
+  }
+}
+
+annotate entity ZC_LOAD_REJ_HDR with
+{
+  @UI.hidden: true
+  HeaderUUID;
+
+  @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Order Details',
+      targetQualifier: 'GENERAL',
+      position: 10
+    },
+    {
+      id: 'Items',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Serial Numbers',
+      targetElement: '_Items',
+      position: 20
+    }
+  ]
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.selectionField: [ { position: 10 } ]
+
+  @UI.identification: [
+    {
+      position: 10,
+      type: #FOR_ACTION,
+      dataAction: 'Fetch',
+      label: 'Fetch Order Data'
+    },
+  {
+    position: 20,
+    type: #FOR_ACTION,
+    dataAction: 'FetchSerials',
+    label: 'Fetch Serial Numbers'
+  }
+  ]
+
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 10
+    }
+  ]
+
+  @EndUserText.label: 'Order Number'
+  ProdOrder;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.selectionField: [ { position: 20 } ]
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 20 }
+  ]
+  @EndUserText.label: 'Plant'
+  Plant;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.selectionField: [ { position: 30 } ]
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 30 }
+  ]
+  @EndUserText.label: 'Order Type'
+  OrderType;
+  
+   @UI.lineItem: [ { position: 40 } ]
+  @UI.selectionField: [ { position: 40 } ]
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 40 }
+  ]
+  @EndUserText.label: 'Work Center'
+  WorkCenter;
+
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.selectionField: [ { position: 50 } ]
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 50 }
+  ]
+  @EndUserText.label: 'Batch'
+  BATCHNUMBER;
+
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.selectionField: [ { position: 60 } ]
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 60 }
+  ]
+  @EndUserText.label: 'Material'
+  Material;
+
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 70 }
+  ]
+  @EndUserText.label: 'Loaded Quantity'
+  LoadedQty;
+
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 80 }
+  ]
+  @EndUserText.label: 'Loading Rejection Qty (531)'
+  LoadingRejQty;
+
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 90 }
+  ]
+  @EndUserText.label: 'Serials Marked Rejected'
+  RejectedCount;
+
+  @UI.fieldGroup: [
+    { qualifier: 'GENERAL', position: 100 }
+  ]
+  @EndUserText.label: 'Quantity Unit'
+  displayunit;
+
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  @UI.hidden: true
+  LastChangedAt;
+}
